@@ -1,6 +1,3 @@
-#New code
-print("Hello, ESP32-S3!")
-
 from machine import Pin, I2C, Timer
 import machine
 import ssd1306 
@@ -10,10 +7,10 @@ import time
 DHT_PIN = 4  # DHT22 data pin
 button = Pin(0, Pin.IN, Pin.PULL_UP)
 # Initialize DHT22 sensor
-dht_sensor = dht.DHT22(machine.Pin(DHT_PIN)) # change DHT11 fr physical device
+dht_sensor = dht.DHT22(Pin(DHT_PIN)) # change DHT11 fr physical device
 
 # Initialize OLED display
-i2c = machine.I2C(scl=machine.Pin(9), sda=machine.Pin(8))
+i2c = machine.I2C(scl=Pin(9), sda=Pin(8))
 oled = ssd1306.SSD1306_I2C(128, 64, i2c)
 
 pressed= False
@@ -46,7 +43,6 @@ button.irq(trigger=Pin.IRQ_FALLING, handler=button_pressed)
 
 
 
-
 # Main loop
 while True:
     try:
@@ -67,5 +63,3 @@ while True:
     
         
     time.sleep(1)  # Update every 2 seconds
-
-   
