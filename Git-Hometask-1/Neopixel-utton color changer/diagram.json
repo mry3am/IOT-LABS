@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "Maryam Munawar",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 131,
+      "left": 172.8,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    { "type": "wokwi-neopixel", "id": "rgb1", "top": 111.7, "left": -154.6, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:0", "btn1:1.l", "green", [ "h72.04", "v-9.6" ] ],
+    [ "btn1:2.l", "esp:GND.1", "green", [ "v67.4", "h-220.8", "v-76.8" ] ],
+    [ "rgb1:DIN", "esp:33", "green", [ "v-48", "h95.2", "v28.8" ] ],
+    [ "rgb1:VDD", "esp:5V", "green", [ "h-19.2", "v144", "h134.4", "v-57.6" ] ],
+    [ "rgb1:VSS", "esp:GND.1", "green", [ "h37.6", "v8.7", "h67.2", "v19.2" ] ]
+  ],
+  "dependencies": {}
+}
